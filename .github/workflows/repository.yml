@@ -26,7 +26,7 @@ jobs:
       - name: Install tools
         run: pacman -Syu --noconfirm --needed actionlint base-devel python python-cryptography debian-archive-keyring sbsigntools mkinitcpio libarchive git github-cli
       - name: Validate workflow
-        run: actionlint
+        run: actionlint .github/workflows/repository.yml
       - name: Test metadata verification and resolution
         run: python -m unittest discover -s tests -v
       - name: Resolve latest signed Debian packages
