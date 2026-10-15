@@ -20,11 +20,11 @@ jobs:
     container:
       image: archlinux:base@sha256:3c64b538588416593f69a1aebd2f2ec0f2541b29159f32556fa7def2167147a0
     steps:
+      - name: Install tools
+        run: pacman -Syu --noconfirm --needed actionlint base-devel python python-cryptography debian-archive-keyring sbsigntools mkinitcpio libarchive git github-cli
       - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
         with:
           persist-credentials: false
-      - name: Install tools
-        run: pacman -Syu --noconfirm --needed actionlint base-devel python python-cryptography debian-archive-keyring sbsigntools mkinitcpio libarchive git github-cli
       - name: Validate workflow
         run: actionlint .github/workflows/repository.yml
       - name: Test metadata verification and resolution
