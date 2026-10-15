@@ -1,0 +1,67 @@
+{
+    "suite": "sid",
+    "architecture": "amd64",
+    "kernel_abi": "7.2.10+deb14-amd64",
+    "packages": {
+        "linux-debian-bin": {
+            "debian_version": "7.2.10-1",
+            "pkgver": "7.2.10.deb1",
+            "sources": [
+                {
+                    "name": "linux-image-7.2.10+deb14-amd64",
+                    "version": "7.2.10-1",
+                    "filename": "pool/main/l/linux-signed-amd64/linux-image-7.2.10+deb14-amd64_7.2.10-1_amd64.deb",
+                    "sha256": "03fb13bd590d803650492d8e36a409b3d2c81f70c71aa1ed6f4aba9c0ba21c50"
+                },
+                {
+                    "name": "linux-base-7.2.10+deb14-amd64",
+                    "version": "7.2.10-1",
+                    "filename": "pool/main/l/linux/linux-base-7.2.10+deb14-amd64_7.2.10-1_amd64.deb",
+                    "sha256": "0943dbb8cf60bc083f0842aea54a5250e771f3b310e3ae932564103e315b0d60"
+                },
+                {
+                    "name": "linux-binary-7.2.10+deb14-amd64",
+                    "version": "7.2.10-1",
+                    "filename": "pool/main/l/linux-signed-amd64/linux-binary-7.2.10+deb14-amd64_7.2.10-1_amd64.deb",
+                    "sha256": "c5bf4c865fa6f25a66979e553ee328ab08a01899b34677847b835d4c84f8cdda"
+                },
+                {
+                    "name": "linux-modules-7.2.10+deb14-amd64",
+                    "version": "7.2.10-1",
+                    "filename": "pool/main/l/linux/linux-modules-7.2.10+deb14-amd64_7.2.10-1_amd64.deb",
+                    "sha256": "9289bc62d6464588ccf3382543d416bf67bbffd064969b492ad13718d20a5a5b"
+                }
+            ]
+        },
+        "systemd-boot-debian-bin": {
+            "debian_version": "262-1",
+            "pkgver": "262.deb1",
+            "sources": [
+                {
+                    "name": "systemd-boot-efi-amd64-signed",
+                    "version": "262-1",
+                    "filename": "pool/main/s/systemd-boot-efi-amd64-signed/systemd-boot-efi-amd64-signed_262-1_amd64.deb",
+                    "sha256": "2177b8b3d9df6030299a5171e8d5b7e7c3ee8895b4ee579a81c5957d6c71f42c"
+                }
+            ]
+        },
+        "shim-debian-signed-bin": {
+            "debian_version": "1.51+16.1-2",
+            "pkgver": "1.51.16.1.deb2",
+            "sources": [
+                {
+                    "name": "shim-signed",
+                    "version": "1.51+16.1-2",
+                    "filename": "pool/main/s/shim-signed/shim-signed_1.51+16.1-2_amd64.deb",
+                    "sha256": "993868c31cca3eab054a0c51c124a4a8b3904f49fb002feb4b09cb9415200e74"
+                },
+                {
+                    "name": "shim-helpers-amd64-signed",
+                    "version": "1+16.1+2",
+                    "filename": "pool/main/s/shim-helpers-amd64-signed/shim-helpers-amd64-signed_1+16.1+2_amd64.deb",
+                    "sha256": "6a6d340710ffc067198af33785d1e04836b2cc0d259ec4b080a06604d333a8cb"
+                }
+            ]
+        }
+    }
+}

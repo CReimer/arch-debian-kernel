@@ -1,0 +1,65 @@
+name: Build and publish Pacman repository
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '23 */12 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: repository-${{ github.event_name == 'pull_request' && github.ref || 'publish' }}
+  cancel-in-progress: false
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    container:
+      image: archlinux:base@sha256:3c64b538588416593f69a1aebd2f2ec0f2541b29159f32556fa7def2167147a0
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          persist-credentials: false
+      - name: Install tools
+        run: pacman -Syu --noconfirm --needed actionlint base-devel python python-cryptography debian-archive-keyring sbsigntools mkinitcpio libarchive git github-cli
+      - name: Validate workflow
+        run: actionlint
+      - name: Test metadata verification and resolution
+        run: python -m unittest discover -s tests -v
+      - name: Resolve latest signed Debian packages
+        run: python scripts/update.py
+      - name: Build and verify unchanged signed payloads
+        run: bash scripts/build.sh
+      - name: Save authenticated package updates
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add packages sources.lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update authenticated Debian binaries'
+            gh auth setup-git
+            git push origin HEAD:main
+          fi
+      - name: Sign and publish repository
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PACMAN_SIGNING_KEY: ${{ secrets.PACMAN_SIGNING_KEY }}
+        run: bash scripts/publish.sh
+      - name: Check public Pacman endpoint
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          curl --fail --location --retry 4 --retry-delay 5 \
+            "https://github.com/${GITHUB_REPOSITORY}/releases/download/repository/arch-debian-kernel.db" \
+            --output /tmp/published.db
+          test -s /tmp/published.db

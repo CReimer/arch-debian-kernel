@@ -1,0 +1,6 @@
+# The signed Debian kernel stays separate from the locally generated initramfs.
+ALL_kver='/boot/vmlinuz-linux-debian-bin'
+PRESETS=('default' 'fallback')
+default_image='/boot/initramfs-linux-debian-bin.img'
+fallback_image='/boot/initramfs-linux-debian-bin-fallback.img'
+fallback_options='-S autodetect'

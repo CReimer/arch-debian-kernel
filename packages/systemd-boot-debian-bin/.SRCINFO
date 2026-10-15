@@ -1,0 +1,14 @@
+pkgbase = systemd-boot-debian-bin
+	pkgdesc = Official Debian signed binaries repackaged for Arch Linux
+	pkgver = 262.deb1
+	pkgrel = 1
+	url = https://www.debian.org/
+	arch = x86_64
+	license = LGPL-2.1-or-later
+	makedepends = libarchive
+	options = !strip
+	options = !debug
+	source = https://deb.debian.org/debian/pool/main/s/systemd-boot-efi-amd64-signed/systemd-boot-efi-amd64-signed_262-1_amd64.deb
+	sha256sums = 2177b8b3d9df6030299a5171e8d5b7e7c3ee8895b4ee579a81c5957d6c71f42c
+
+pkgname = systemd-boot-debian-bin

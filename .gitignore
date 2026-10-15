@@ -1,0 +1,7 @@
+dist/
+__pycache__/
+packages/*/src/
+packages/*/pkg/
+packages/*/*.deb
+packages/*/*.pkg.tar.*
+packages/*/*.log
