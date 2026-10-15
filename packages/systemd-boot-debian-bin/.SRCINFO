@@ -1,7 +1,7 @@
 pkgbase = systemd-boot-debian-bin
 	pkgdesc = Official Debian signed binaries repackaged for Arch Linux
 	pkgver = 262.deb1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://www.debian.org/
 	arch = x86_64
 	license = LGPL-2.1-or-later

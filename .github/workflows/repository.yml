@@ -33,6 +33,8 @@ jobs:
         run: python scripts/update.py
       - name: Build and verify unchanged signed payloads
         run: bash scripts/build.sh
+      - name: Check bootctl isolation in the disposable container
+        run: python scripts/check_bootctl.py dist/systemd-boot-debian-bin-*.pkg.tar.zst
       - name: Save authenticated package updates
         if: github.event_name != 'pull_request'
         env:

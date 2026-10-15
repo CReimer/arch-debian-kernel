@@ -103,6 +103,12 @@ def recipe(name, version, entries, kernel_abi=None):
                   '    printf \'%s\\n\' "$pkgname" > "$modules/pkgbase"',
                   '    rm -rf "$pkgdir/boot"',
                   '    install -Dm644 "$startdir/linux-debian-bin.preset" "$pkgdir/etc/mkinitcpio.d/linux-debian-bin.preset"']
+    elif name == 'systemd-boot-debian-bin':
+        lines += [
+            '    install -d "$pkgdir/usr/lib/arch-debian-kernel/systemd-boot"',
+            '    mv "$pkgdir/usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed" "$pkgdir/usr/lib/arch-debian-kernel/systemd-boot/"',
+            '    rmdir "$pkgdir/usr/lib/systemd/boot/efi" "$pkgdir/usr/lib/systemd/boot" "$pkgdir/usr/lib/systemd"',
+        ]
     # Debian docs/copyright remain in the payload; retain original signed EFI and .ko bytes.
     lines += ['}', '']
     return '\n'.join(lines)

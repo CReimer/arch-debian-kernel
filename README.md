@@ -52,8 +52,10 @@ a day. All packages and databases require valid repository signatures;
 
 Installing the packages **does not create a firmware boot entry** or enroll Secure
 Boot keys. The existing Arch kernel can remain installed alongside the Debian
-kernel. Running Arch's regular `bootctl update` still installs the Arch EFI binary;
-the separate Debian boot path must be maintained explicitly.
+kernel. The Debian bootloader is stored outside bootctl's standard source directory,
+at `/usr/lib/arch-debian-kernel/systemd-boot/systemd-bootx64.efi.signed`. Installing
+this package does not add a `.signed` override to Arch's bootctl source directory.
+The separate Debian boot path must be maintained explicitly.
 
 ## Boot with systemd-boot
 
@@ -92,7 +94,9 @@ path.
 For the separate EFI boot path, copy the signed Debian binaries into a dedicated
 directory on the ESP. By default, Shim expects its second-stage loader there to be
 named `grubx64.efi`; in this setup, that file contains **systemd-boot**, not GRUB.
-List the installed package files with:
+Copy the Debian bootloader from
+`/usr/lib/arch-debian-kernel/systemd-boot/systemd-bootx64.efi.signed` to that
+separate ESP directory as `grubx64.efi`. List the installed package files with:
 
 ```sh
 pacman -Ql systemd-boot-debian-bin shim-debian-signed-bin
@@ -102,6 +106,19 @@ Kernel and initramfs updates are integrated through mkinitcpio. Copying updated
 Shim/systemd-boot files to your ESP and selecting the firmware boot entry remain
 separate setup steps. This project does not include an automatic ESP installation
 hook.
+
+## Upgrading from the initial bootloader package
+
+Version `262.deb1-1` installed the Debian bootloader in bootctl's standard source
+directory. Upgrading to `262.deb1-2` or later removes that override and installs
+the binary in the dedicated project directory above.
+
+The upgrade does not restore EFI files that were already copied to the ESP by
+`bootctl install`, `bootctl update` or `systemd-boot-update.service`. If you used
+that initial version, verify your normal and fallback ESP bootloader files and
+restore the bootloader trusted by your existing Secure Boot setup when needed.
+An existing locally signed override created by your own signing tools is separate
+from this package; those tools may need to regenerate it after the upgrade.
 
 ## Secure Boot and EAC Linux v2
 
@@ -154,8 +171,9 @@ the installed Arch packages or kernel.
 3. `makepkg` checks the downloaded `.deb` files again. Repackaging does not change
    kernel, module or EFI binaries.
 4. `check_packages.py` compares these files byte for byte and verifies Debian CA
-   trust and the required kernel options. The build stops if Debian's package
-   layout changes or required capabilities are missing.
+   trust and the required kernel options. A container installation test also
+   checks that official bootctl install/update behavior is unchanged. The build
+   stops if Debian's package layout changes or required capabilities are missing.
 5. Only main-branch, scheduled and manual runs receive the dedicated signing key
    during publication. Pull requests are built but cannot sign or publish.
 6. Packages and signatures are uploaded before the new database. Older package

@@ -59,6 +59,8 @@ def check(directory):
                 continue
             relative = source.relative_to(expected)
             target = actual / relative
+            if str(relative) == 'usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed':
+                target = actual / 'usr/lib/arch-debian-kernel/systemd-boot/systemd-bootx64.efi.signed'
             if relative.parts[0] == 'lib':
                 target = actual / 'usr' / relative
             if relative.parts[0] == 'boot' and source.name.startswith('vmlinuz-'):
@@ -69,7 +71,9 @@ def check(directory):
         if compared < 100:
             raise ValueError('Unexpectedly few signed kernel payloads')
         kernel = actual / 'usr/lib/modules' / abi / 'vmlinuz'
-        boot = actual / 'usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed'
+        boot = actual / 'usr/lib/arch-debian-kernel/systemd-boot/systemd-bootx64.efi.signed'
+        if (actual / 'usr/lib/systemd/boot/efi').exists():
+            raise ValueError('Debian bootloader must not populate the standard bootctl source directory')
         shim = actual / 'usr/lib/shim/shimx64.efi.signed'
         cert = root / 'debian-ca.pem'
         cert.write_bytes(extract_ca(shim))
