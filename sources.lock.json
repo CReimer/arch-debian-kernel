@@ -1,35 +1,35 @@
 {
     "suite": "sid",
     "architecture": "amd64",
-    "kernel_abi": "7.2.10+deb14-amd64",
+    "kernel_abi": "7.2.11+deb14-amd64",
     "packages": {
         "linux-debian-bin": {
-            "debian_version": "7.2.10-1",
-            "pkgver": "7.2.10.deb1",
+            "debian_version": "7.2.11-1",
+            "pkgver": "7.2.11.deb1",
             "sources": [
                 {
-                    "name": "linux-image-7.2.10+deb14-amd64",
-                    "version": "7.2.10-1",
-                    "filename": "pool/main/l/linux-signed-amd64/linux-image-7.2.10+deb14-amd64_7.2.10-1_amd64.deb",
-                    "sha256": "03fb13bd590d803650492d8e36a409b3d2c81f70c71aa1ed6f4aba9c0ba21c50"
+                    "name": "linux-image-7.2.11+deb14-amd64",
+                    "version": "7.2.11-1",
+                    "filename": "pool/main/l/linux-signed-amd64/linux-image-7.2.11+deb14-amd64_7.2.11-1_amd64.deb",
+                    "sha256": "1986ff769b59d4d3ff382c25fc158b1a2bca3aaf831a86ba56e4811453c9ef13"
                 },
                 {
-                    "name": "linux-base-7.2.10+deb14-amd64",
-                    "version": "7.2.10-1",
-                    "filename": "pool/main/l/linux/linux-base-7.2.10+deb14-amd64_7.2.10-1_amd64.deb",
-                    "sha256": "0943dbb8cf60bc083f0842aea54a5250e771f3b310e3ae932564103e315b0d60"
+                    "name": "linux-base-7.2.11+deb14-amd64",
+                    "version": "7.2.11-1",
+                    "filename": "pool/main/l/linux/linux-base-7.2.11+deb14-amd64_7.2.11-1_amd64.deb",
+                    "sha256": "a16696106fbd13d02e0b5747fc2850a5d9fc9b20b1bc8275328ccb7e42f9754b"
                 },
                 {
-                    "name": "linux-binary-7.2.10+deb14-amd64",
-                    "version": "7.2.10-1",
-                    "filename": "pool/main/l/linux-signed-amd64/linux-binary-7.2.10+deb14-amd64_7.2.10-1_amd64.deb",
-                    "sha256": "c5bf4c865fa6f25a66979e553ee328ab08a01899b34677847b835d4c84f8cdda"
+                    "name": "linux-binary-7.2.11+deb14-amd64",
+                    "version": "7.2.11-1",
+                    "filename": "pool/main/l/linux-signed-amd64/linux-binary-7.2.11+deb14-amd64_7.2.11-1_amd64.deb",
+                    "sha256": "2d2abdffc6bdea862eb7a76f9eb50983905bb2143859b0ee1fd243b542f90cfc"
                 },
                 {
-                    "name": "linux-modules-7.2.10+deb14-amd64",
-                    "version": "7.2.10-1",
-                    "filename": "pool/main/l/linux/linux-modules-7.2.10+deb14-amd64_7.2.10-1_amd64.deb",
-                    "sha256": "9289bc62d6464588ccf3382543d416bf67bbffd064969b492ad13718d20a5a5b"
+                    "name": "linux-modules-7.2.11+deb14-amd64",
+                    "version": "7.2.11-1",
+                    "filename": "pool/main/l/linux/linux-modules-7.2.11+deb14-amd64_7.2.11-1_amd64.deb",
+                    "sha256": "293423f4e28fc96a9c6088650602bac105d4eea7f11f27499a484228f0223fd9"
                 }
             ]
         },
