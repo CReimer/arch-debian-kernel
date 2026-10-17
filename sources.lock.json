@@ -34,14 +34,14 @@
             ]
         },
         "systemd-boot-debian-bin": {
-            "debian_version": "262-1",
-            "pkgver": "262.deb1",
+            "debian_version": "262.1-1",
+            "pkgver": "262.1.deb1",
             "sources": [
                 {
                     "name": "systemd-boot-efi-amd64-signed",
-                    "version": "262-1",
-                    "filename": "pool/main/s/systemd-boot-efi-amd64-signed/systemd-boot-efi-amd64-signed_262-1_amd64.deb",
-                    "sha256": "2177b8b3d9df6030299a5171e8d5b7e7c3ee8895b4ee579a81c5957d6c71f42c"
+                    "version": "262.1-1",
+                    "filename": "pool/main/s/systemd-boot-efi-amd64-signed/systemd-boot-efi-amd64-signed_262.1-1_amd64.deb",
+                    "sha256": "25107292bd5f77b990316cd7c82075722fbfd7793174d2dff34d5630dc8b7bc9"
                 }
             ]
         },
