@@ -18,7 +18,7 @@ if ! gh release view "$release" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; the
         --title 'Pacman repository (x86_64)' --notes-file docs/release-notes.md
 fi
 # Package names are immutable. Reuse already published bytes on rebuilds; only
-# database aliases are replaced. Old packages stay available to cached clients.
+# database aliases are replaced. Cleanup follows verified publication below.
 gh release view "$release" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' > dist/remote-assets.txt
 for package in dist/*.pkg.tar.zst; do
     name=${package##*/}
@@ -43,3 +43,5 @@ done
 )
 # Payloads and their signatures are available before clients can see a new DB.
 gh release upload "$release" dist/arch-debian-kernel.db* dist/arch-debian-kernel.files* keys/repository.asc --repo "$GITHUB_REPOSITORY" --clobber
+python scripts/cleanup_release.py --database dist/arch-debian-kernel.db \
+    --repo "$GITHUB_REPOSITORY" --release "$release" --apply

@@ -176,10 +176,12 @@ the installed Arch packages or kernel.
    stops if Debian's package layout changes or required capabilities are missing.
 5. Only main-branch, scheduled and manual runs receive the dedicated signing key
    during publication. Pull requests are built but cannot sign or publish.
-6. Packages and signatures are uploaded before the new database. Older package
-   files remain available to clients with cached databases. Published package
-   filenames are never overwritten. Changes to the Arch integration require a
-   `pkgrel` increment.
+6. Packages and signatures are uploaded before the new database. After verifying
+   the publicly available database and its signature, the workflow deletes all
+   older versions and their signatures. Only the version of each package listed
+   in the current database remains. Clients with an outdated database must run
+   `pacman -Syu` before installing packages. Published package filenames are never
+   overwritten. Changes to the Arch integration require a `pkgrel` increment.
 
 GitHub replaces databases and signatures as separate release assets. A client
 connecting during publication may briefly encounter a signature error. Retrying
