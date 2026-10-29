@@ -1,35 +1,35 @@
 {
     "suite": "sid",
     "architecture": "amd64",
-    "kernel_abi": "7.2.12+deb14-amd64",
+    "kernel_abi": "7.2.13+deb14-amd64",
     "packages": {
         "linux-debian-bin": {
-            "debian_version": "7.2.12-1",
-            "pkgver": "7.2.12.deb1",
+            "debian_version": "7.2.13-1",
+            "pkgver": "7.2.13.deb1",
             "sources": [
                 {
-                    "name": "linux-image-7.2.12+deb14-amd64",
-                    "version": "7.2.12-1",
-                    "filename": "pool/main/l/linux-signed-amd64/linux-image-7.2.12+deb14-amd64_7.2.12-1_amd64.deb",
-                    "sha256": "05ecc141b60fb3525e6cb99ddc785975c349312a205c6bad8416e3909d87066d"
+                    "name": "linux-image-7.2.13+deb14-amd64",
+                    "version": "7.2.13-1",
+                    "filename": "pool/main/l/linux-signed-amd64/linux-image-7.2.13+deb14-amd64_7.2.13-1_amd64.deb",
+                    "sha256": "28dc3dd3c1446246ced2f9e4bf4e93475aae3815d03eaedebe20b168cb944b10"
                 },
                 {
-                    "name": "linux-base-7.2.12+deb14-amd64",
-                    "version": "7.2.12-1",
-                    "filename": "pool/main/l/linux/linux-base-7.2.12+deb14-amd64_7.2.12-1_amd64.deb",
-                    "sha256": "ea7ee739e62b54cb01f30696ffbcf16ebe6a47f62520da368f6d03b576d36049"
+                    "name": "linux-base-7.2.13+deb14-amd64",
+                    "version": "7.2.13-1",
+                    "filename": "pool/main/l/linux/linux-base-7.2.13+deb14-amd64_7.2.13-1_amd64.deb",
+                    "sha256": "2b2d3c6e224358c60974d0bc87461da99a85733eb1fec035b5167582c3bede2b"
                 },
                 {
-                    "name": "linux-binary-7.2.12+deb14-amd64",
-                    "version": "7.2.12-1",
-                    "filename": "pool/main/l/linux-signed-amd64/linux-binary-7.2.12+deb14-amd64_7.2.12-1_amd64.deb",
-                    "sha256": "362463390b32bcd1ab8b081de4f3900a88de8bcc81cf54097c5806d4b5ff6554"
+                    "name": "linux-binary-7.2.13+deb14-amd64",
+                    "version": "7.2.13-1",
+                    "filename": "pool/main/l/linux-signed-amd64/linux-binary-7.2.13+deb14-amd64_7.2.13-1_amd64.deb",
+                    "sha256": "fb8cd0ade4ef82d9dde1dcf183d4bf4033db1b549b0acc9973855ad9cc48c4f5"
                 },
                 {
-                    "name": "linux-modules-7.2.12+deb14-amd64",
-                    "version": "7.2.12-1",
-                    "filename": "pool/main/l/linux/linux-modules-7.2.12+deb14-amd64_7.2.12-1_amd64.deb",
-                    "sha256": "cfaf00697f03db619244ad93bcfa5ff46776c4a8698d220473f3b49d955d2771"
+                    "name": "linux-modules-7.2.13+deb14-amd64",
+                    "version": "7.2.13-1",
+                    "filename": "pool/main/l/linux/linux-modules-7.2.13+deb14-amd64_7.2.13-1_amd64.deb",
+                    "sha256": "a37a3d200915c4cf524e90c81bbb2a8b683d292cd00873e89c23b2ef32b1bf11"
                 }
             ]
         },
