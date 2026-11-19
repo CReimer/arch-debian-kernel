@@ -1,35 +1,35 @@
 {
     "suite": "sid",
     "architecture": "amd64",
-    "kernel_abi": "7.3.4+deb14-amd64",
+    "kernel_abi": "7.3.5+deb14-amd64",
     "packages": {
         "linux-debian-bin": {
-            "debian_version": "7.3.4-1",
-            "pkgver": "7.3.4.deb1",
+            "debian_version": "7.3.5-1",
+            "pkgver": "7.3.5.deb1",
             "sources": [
                 {
-                    "name": "linux-image-7.3.4+deb14-amd64",
-                    "version": "7.3.4-1",
-                    "filename": "pool/main/l/linux-signed-amd64/linux-image-7.3.4+deb14-amd64_7.3.4-1_amd64.deb",
-                    "sha256": "c72ef341ed82cc4db5f8db150f968c088af507b624f06edba8eb9c8195e105e8"
+                    "name": "linux-image-7.3.5+deb14-amd64",
+                    "version": "7.3.5-1",
+                    "filename": "pool/main/l/linux-signed-amd64/linux-image-7.3.5+deb14-amd64_7.3.5-1_amd64.deb",
+                    "sha256": "7ed17892e6c1abfec65945a6d65db118e594115771e9c78bbdea0f41ba3259d3"
                 },
                 {
-                    "name": "linux-base-7.3.4+deb14-amd64",
-                    "version": "7.3.4-1",
-                    "filename": "pool/main/l/linux/linux-base-7.3.4+deb14-amd64_7.3.4-1_amd64.deb",
-                    "sha256": "913d11e999fbb44ec9d21b15024e9a387e1d23552f863664f7f48858b8f8d76c"
+                    "name": "linux-base-7.3.5+deb14-amd64",
+                    "version": "7.3.5-1",
+                    "filename": "pool/main/l/linux/linux-base-7.3.5+deb14-amd64_7.3.5-1_amd64.deb",
+                    "sha256": "66987dfad49888a6d6e46be9bca129863852d6e351ff65b54d1264314e2e69a1"
                 },
                 {
-                    "name": "linux-binary-7.3.4+deb14-amd64",
-                    "version": "7.3.4-1",
-                    "filename": "pool/main/l/linux-signed-amd64/linux-binary-7.3.4+deb14-amd64_7.3.4-1_amd64.deb",
-                    "sha256": "4c083026f57b5eca1cd1f47b5b41a444ad42e1ae35922335ed7f5cfbe1d29ea9"
+                    "name": "linux-binary-7.3.5+deb14-amd64",
+                    "version": "7.3.5-1",
+                    "filename": "pool/main/l/linux-signed-amd64/linux-binary-7.3.5+deb14-amd64_7.3.5-1_amd64.deb",
+                    "sha256": "ffbcdb89433671400f6055ddc2e73314b43027fbef14f765d14a2ee7c5613f9b"
                 },
                 {
-                    "name": "linux-modules-7.3.4+deb14-amd64",
-                    "version": "7.3.4-1",
-                    "filename": "pool/main/l/linux/linux-modules-7.3.4+deb14-amd64_7.3.4-1_amd64.deb",
-                    "sha256": "aa5a446c35d390ce07eb040fcd69897b7726e324553eb945cd0a880307b067fd"
+                    "name": "linux-modules-7.3.5+deb14-amd64",
+                    "version": "7.3.5-1",
+                    "filename": "pool/main/l/linux/linux-modules-7.3.5+deb14-amd64_7.3.5-1_amd64.deb",
+                    "sha256": "4e6972c4a31e5b4bddc534f411f246d07b6174f5a87025320b3b44a2c109aa24"
                 }
             ]
         },
